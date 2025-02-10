@@ -9,7 +9,7 @@ const app = express();
 
 // Step 04: EJS
 app.set('view engine','ejs')
-app.set('views', path.resolve('./views'))
+app.set('views', path.resolve('./views'));
 
 // Port
 const PORT = 8000;
