@@ -11,6 +11,13 @@ const app = express();
 app.set('view engine','ejs')
 app.set('views', path.resolve('./views'));
 
+
+// For test Routes
+app.get('/', (req,res)=>{
+    res.render('home');
+})
+
+
 // Port
 const PORT = 8000;
 
