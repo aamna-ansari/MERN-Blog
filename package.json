@@ -4,7 +4,7 @@
   "description": "It's MERN-Blog Application Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": ""
   },
   "author": "AaMna AnSari",
   "license": "ISC"
