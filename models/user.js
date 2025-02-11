@@ -17,7 +17,6 @@ const userSchema = new Schema(
     //   salt create for hashing Password
     salt: {
       type: String,
-      required: true,
     },
     profileImage: {
       type: String,
