@@ -21,7 +21,13 @@ const userSchema = new Schema(
     },
     profileImage: {
       type: String,
+      default: '/images/user.png',
     },
+    role: {
+        type: String,
+        enum:['USER','ADMIN'],
+        default:'USER'
+    }
   },
   { timestamps: true }
 );
