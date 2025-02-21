@@ -2,7 +2,7 @@
 const express = require("express");
 
 // Import User From Routes
-const userRoutes = require('./routes/user');
+const userRoute = require('./routes/user');
 
 // Step 03: Path import
 const path = require('path');
@@ -19,6 +19,9 @@ app.set('views', path.resolve('./views'));
 app.get('/', (req,res)=>{
     res.render('home');
 })
+
+// UseRoute
+app.use('/user', userRoute);
 
 
 

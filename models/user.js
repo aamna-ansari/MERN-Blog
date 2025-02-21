@@ -1,6 +1,6 @@
 // Step! Schema From Mongose
-
-const Schema = require("mongose");
+const mongoose = require("mongoose");
+const { Schema,model } = mongoose;
 
 // Create Schema
 const userSchema = new Schema(
