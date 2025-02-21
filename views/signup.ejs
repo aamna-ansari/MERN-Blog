@@ -9,7 +9,7 @@
     <!-- Navbar -->
     <%- include('./partials/navbar') %>
     <div class="container mt-4">
-      <form>
+      <form action="/user/signup" method="post">
         <!-- Full name -->
         <div class="mb-3">
           <label for="fullName" class="form-label">Full Name</label>
@@ -37,7 +37,6 @@
             We'll never share your email with anyone else.
           </div>
         </div>
-
         <!-- Password -->
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
