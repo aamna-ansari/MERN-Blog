@@ -9,7 +9,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     password: {
       type: String,
       required: true,
@@ -20,18 +24,18 @@ const userSchema = new Schema(
     },
     profileImage: {
       type: String,
-      default: '/images/user.png',
+      default: "/images/user.png",
     },
     role: {
-        type: String,
-        enum:['USER','ADMIN'],
-        default:'USER'
-    }
+      type: String,
+      enum: ["USER", "ADMIN"],
+      default: "USER",
+    },
   },
   { timestamps: true }
 );
 
 // Model
-const User = model ('user', userSchema);
+const User = model("user", userSchema);
 
-module.exports = User
+module.exports = User;
