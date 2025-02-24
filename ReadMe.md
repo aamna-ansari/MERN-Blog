@@ -20,7 +20,7 @@ A full-stack blog application built using the MERN stack (MongoDB, Express.js, R
 ## Installation
 ### Clone the repository:
 ```bash
-git clone https://github.com/aamna-ansari/mern-blog.git
+git clone https://github.com/username/mern-blog.git
 cd mern-blog
 ```
 
