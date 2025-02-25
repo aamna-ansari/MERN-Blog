@@ -12,7 +12,7 @@ A full-stack blog application built using the MERN stack (MongoDB, Express.js, R
 - RESTful API using Express.js & Node.js
 
 ## Tech Stack
-- **Frontend:** React, Tailwind CSS
+- **Frontend:** Ejs (Server Side Rendering)
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Authentication:** JWT (JSON Web Token)
