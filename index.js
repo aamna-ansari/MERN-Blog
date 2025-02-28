@@ -8,7 +8,6 @@ const userRoute = require("./routes/user");
 
 // Step 03: Path import
 const path = require("path");
-const { log } = require("console");
 
 // Step 02: Create instant
 const app = express();
