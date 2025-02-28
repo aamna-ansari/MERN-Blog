@@ -62,7 +62,6 @@ userSchema.static("matchPassword", function (email, password) {
   const user = this.findOne({ email });
   if (!user) return false;
 
-
   const salt = user.salt;
   const hashedPassword = user.password;
 
@@ -70,7 +69,8 @@ userSchema.static("matchPassword", function (email, password) {
     .update(user.password)
     .digest("hex");
 
-    if(hashedPassword !==userProviderHash) throw new Error("Incprrect Password")
+  if (hashedPassword !== userProviderHash)
+    throw new Error("Incorrect Password");
 
   return { ...user, password: undefined, salt: undefined };
 });
