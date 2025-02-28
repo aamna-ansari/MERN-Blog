@@ -39,18 +39,18 @@ const userSchema = new Schema(
 
 userSchema.pre("save", function (next) {
   const user = this;
-  if (!user.isModified("Password")) return;
+  if (!user.isModified("password")) return;
 
   // Crypt the User password
-
   // Generate a Salt
-  const salt = randomBytes(16).toString();
+  const salt = randomBytes(16).toString('hex');
   const hashedPassword = createHmac("sha256", salt)
     .update(user.password)
     .digest("hex");
 
   this.salt = salt;
   this.password = hashedPassword;
+  next();
 });
 // How It Works:
 // Salt: A unique random value is generated to make each hash unique.
