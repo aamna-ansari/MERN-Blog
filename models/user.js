@@ -43,7 +43,7 @@ userSchema.pre("save", function (next) {
 
   // Crypt the User password
   // Generate a Salt
-  const salt = randomBytes(16).toString('hex');
+  const salt = randomBytes(16).toString("hex");
   const hashedPassword = createHmac("sha256", salt)
     .update(user.password)
     .digest("hex");
@@ -56,6 +56,21 @@ userSchema.pre("save", function (next) {
 // Salt: A unique random value is generated to make each hash unique.
 // HMAC Hashing: The password is hashed using SHA-256 along with the salt.
 // Security Purpose: Using a salt ensures that even if two users have the same password, their hashed passwords will be different.
+
+// hashed match to sign in
+userSchema.static("matchPassword", function (email, password) {
+  const user = this.findOne({ email });
+  if (!user) return false;
+
+  const salt = user.salt;
+  const hashedPassword = user.password;
+
+  const userProviderHash = createHmac("sha256", salt)
+    .update(user.password)
+    .digest("hex");
+
+    return hashedPassword === userProviderHash;
+});
 
 // Model
 const User = model("user", userSchema);
