@@ -58,8 +58,8 @@ userSchema.pre("save", function (next) {
 // Security Purpose: Using a salt ensures that even if two users have the same password, their hashed passwords will be different.
 
 // hashed match to sign in
-userSchema.static("matchPassword", function (email, password) {
-  const user = this.findOne({ email });
+userSchema.static("matchPassword", async function (email, password) {
+  const user = await this.findOne({ email });
   if (!user) return false;
 
   const salt = user.salt;

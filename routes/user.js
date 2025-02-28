@@ -13,7 +13,7 @@ router.get("/signup", (req, res) => {
   return res.render("signup");
 });
 // POST for sign in
-router.post("/sigin", async (req, res) => {
+router.post("/signin", async (req, res) => {
   const { email, password } = req.body;
   const user = User.matchPassword(email, password);
   console.log("User", user);
