@@ -66,7 +66,7 @@ userSchema.static("matchPassword", async function (email, password) {
   const hashedPassword = user.password;
 
   const userProviderHash = createHmac("sha256", salt)
-    .update(user.password)
+    .update(password)
     .digest("hex");
 
   if (hashedPassword !== userProviderHash)
