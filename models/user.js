@@ -1,6 +1,8 @@
 // Step! Schema From Mongose
 const mongoose = require("mongoose");
-const { Schema,model } = mongoose;
+const { Schema, model } = mongoose;
+// FRom Node
+const { createHmac, randomBytes, Hash } = require("crypto");
 
 // Create Schema
 const userSchema = new Schema(
@@ -21,7 +23,6 @@ const userSchema = new Schema(
     //salt create for hashing Password
     salt: {
       type: String,
-      
     },
     profileImage: {
       type: String,
@@ -35,6 +36,22 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
+
+userSchema.pre("save", function (next) {
+  const user = this;
+  if (!user.isModified("Password")) return;
+
+  // Crypt the User password
+
+  // make a salt
+  const salt = randomBytes(16).toString();
+  const hashedPassword = createHmac("sha256", salt)
+    .update(user.password)
+    .digest("hex");
+
+  this.salt = salt;
+  this.password = hashedPassword;
+});
 
 // Model
 const User = model("user", userSchema);
