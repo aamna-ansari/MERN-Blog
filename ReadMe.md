@@ -34,3 +34,4 @@ cd mern-blog
 | `/api/posts` | POST | Create a new blog post |
 | `/api/posts/:id` | PUT | Update a blog post |
 | `/api/posts/:id` | DELETE | Delete a blog post |
+
