@@ -36,3 +36,4 @@ cd mern-blog
 | `/api/posts/:id` | DELETE | Delete a blog post |
 
 
+
