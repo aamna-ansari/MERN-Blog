@@ -37,5 +37,3 @@ cd mern-blog
 
 
 
-
-
